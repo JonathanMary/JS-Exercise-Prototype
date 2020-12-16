@@ -89,9 +89,24 @@ Car.prototype.fill = function(gallons){
   this.tank += gallons;
 }
 Car.prototype.drive = function(distance){
-  this.odometer += distance;
-  this.tank -= distance/this.milesPerGallon;
+  //How many miles can be done with actual tank.
+  let milesInTank = this.milesPerGallon*this.tank;
+  if(distance > milesInTank){
+    this.odometer += milesInTank;
+    this.tank -= milesInTank/this.milesPerGallon;
+    return `I ran out of fuel at ${milesInTank} miles!`;
+  }else{
+    this.odometer += distance;
+    this.tank -= distance/this.milesPerGallon;
+  }
 }
+/*
+let myCar = new Car("I have a bike", 100);
+console.log(myCar.fill(4));
+console.log(myCar.tank); //should return 4
+console.log(myCar.drive(500)); //should return "I ran out of fuel at 400 miles!"
+console.log(myCar.tank); //should return 0
+*/
 
 /*
   TASK 3
@@ -108,9 +123,8 @@ function Baby(name, age, favoriteToy) {
 Baby.prototype.play = function(){
   return `Playing with ${this.favoriteToy}`;
 }
-let mioche = new Baby("my nerves");
-
-console.log(mioche.name);
+//let mome = new Baby("Raymond", "6 months", "my nerves");
+//console.log(mome.play());
 
 /* 
   TASK 4
