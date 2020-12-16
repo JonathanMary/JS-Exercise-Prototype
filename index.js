@@ -115,10 +115,10 @@ console.log(mioche.name);
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Global, 'this' will be the window Object.
+  2. Implicit Binding, 'this' will be the value of the object passed.
+  3. New binding, 'this' will be the object created.
+  4. Explicit binding, 'this' will be the object in .call() or .apply().
 */
 
 
